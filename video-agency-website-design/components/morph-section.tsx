@@ -240,7 +240,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
 
         <p
           ref={kickerRef}
-          className="pointer-events-none absolute top-14 left-1/2 z-10 -translate-x-1/2 text-base font-medium tracking-tight whitespace-nowrap text-foreground md:top-10 md:text-xl"
+          className="pointer-events-none absolute top-14 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap text-sm font-medium tracking-tight text-muted-foreground md:top-10 md:text-base"
         >
           Production audiovisuelle
         </p>
