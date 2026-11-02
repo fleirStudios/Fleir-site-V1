@@ -84,11 +84,9 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
   const isExpanding = activeIndex === 2 && expanding
   const motion = isExpanding ? 'transition-none' : ease
 
-  const screenWidth = isExpanding ? '100vw' : `calc(100% - ${shape.bezel} * 2)`
-  const screenHeight = isExpanding ? '100svh' : `calc(100% - ${shape.bezel} * 2)`
-  const screenRadius = isExpanding
-    ? 'calc(2px * (1 - var(--expand, 0)) + 72px * var(--expand, 0) * (1 - var(--expand, 0)))'
-    : shape.inner
+  const screenWidth = `calc(100% - ${shape.bezel} * 2)`
+  const screenHeight = `calc(100% - ${shape.bezel} * 2)`
+  const screenRadius = isExpanding ? 'clamp(2px, calc(72px * (1 - var(--expand, 0))), 72px)' : shape.inner
 
   return (
     <div className={`relative ${motion}`} style={{ transform: `translateY(${isExpanding ? '0px' : shape.shift})` }}>
@@ -109,7 +107,9 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
             width: screenWidth,
             height: screenHeight,
             borderRadius: screenRadius,
-            transform: 'translate(-50%, -50%)',
+            transform: isExpanding
+              ? 'translate(-50%, -50%) scaleX(calc(1 + var(--expand, 0) * 0.07)) scaleY(calc(1 + var(--expand, 0) * 0.05))'
+              : 'translate(-50%, -50%)',
             opacity: 'var(--video-opacity, 1)',
             boxShadow: isExpanding
               ? '0 40px 90px -20px rgb(0 0 0 / calc(0.45 * (1 - var(--expand, 0))))'
