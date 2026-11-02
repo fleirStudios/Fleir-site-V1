@@ -108,7 +108,7 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
             height: screenHeight,
             borderRadius: screenRadius,
             transform: isExpanding
-              ? 'translate(-50%, -50%) scaleX(calc(1 + var(--expand, 0) * 0.07)) scaleY(calc(1 + var(--expand, 0) * 0.05))'
+              ? 'translate(-50%, -50%) scaleX(calc(1 + var(--expand, 0) * 0.7)) scaleY(calc(1 + var(--expand, 0) * 0.4))'
               : 'translate(-50%, -50%)',
             opacity: 'var(--video-opacity, 1)',
             boxShadow: isExpanding

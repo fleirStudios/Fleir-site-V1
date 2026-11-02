@@ -7,8 +7,8 @@ import { MorphDevice } from '@/components/morph-device'
 const INTRO_VH = 55
 const PHONE_VH = 42
 const LAPTOP_VH = 42
-const TV_VH = 36
-const EXPAND_VH = 64
+const TV_VH = 24
+const EXPAND_VH = 72
 const VISION_VH = 130
 const TOTAL_SCROLL_VH = INTRO_VH + PHONE_VH + LAPTOP_VH + TV_VH + EXPAND_VH + VISION_VH
 
@@ -20,7 +20,7 @@ const CONTENT_START_VH = 100 + TOTAL_SCROLL_VH - ABOUT_OVERLAP_VH
 // Vidéo de fond après l'animation de la télé :
 // - elle s'estompe sur TOUTE la phase « vision » (au lieu des 30 % finaux),
 // - puis elle reste à cette opacité plancher jusqu'en bas de la page.
-const VIDEO_FLOOR = 0.18 // 0 = disparaît complètement, 1 = pleinement visible
+const VIDEO_FLOOR = 0.28 // 0 = disparaît complètement, 1 = pleinement visible
 const VIDEO_FADE_START = 0.05 // début de l'estompage, en part de la phase « vision »
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value))
@@ -127,7 +127,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
       // qui s'arrête à VIDEO_FLOOR et y reste jusqu'en bas de page.
       const fadeProgress = smooth(clamp((vision - VIDEO_FADE_START) / (1 - VIDEO_FADE_START)))
       const videoOpacity = 1 - (1 - VIDEO_FLOOR) * fadeProgress
-      const headline = clamp(tv / 0.2) * (1 - clamp(vision / 0.08))
+      const headline = clamp(tv / 0.12) * (1 - clamp(expandProgress / 0.35))
       device.style.setProperty('--expand', easeInOut(expandProgress).toFixed(4))
       device.style.setProperty('--video-opacity', videoOpacity.toFixed(3))
       device.style.setProperty('--dim', (0.22 * clamp(vision / 0.2)).toFixed(3))
