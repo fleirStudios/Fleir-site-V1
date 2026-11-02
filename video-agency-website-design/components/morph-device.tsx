@@ -84,12 +84,8 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
   const isExpanding = activeIndex === 2 && expanding
   const motion = isExpanding ? 'transition-none' : ease
 
-  const screenWidth = isExpanding
-    ? `calc(${tvScreenW} + (100vw - ${tvScreenW}) * var(--expand, 0))`
-    : `calc(100% - ${shape.bezel} * 2)`
-  const screenHeight = isExpanding
-    ? `calc(${tvScreenH} + (100svh - ${tvScreenH}) * var(--expand, 0))`
-    : `calc(100% - ${shape.bezel} * 2)`
+  const screenWidth = isExpanding ? '100vw' : `calc(100% - ${shape.bezel} * 2)`
+  const screenHeight = isExpanding ? '100svh' : `calc(100% - ${shape.bezel} * 2)`
   const screenRadius = isExpanding
     ? 'calc(2px * (1 - var(--expand, 0)) + 72px * var(--expand, 0) * (1 - var(--expand, 0)))'
     : shape.inner

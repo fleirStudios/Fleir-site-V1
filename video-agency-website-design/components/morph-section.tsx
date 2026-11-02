@@ -127,7 +127,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
       // qui s'arrête à VIDEO_FLOOR et y reste jusqu'en bas de page.
       const fadeProgress = smooth(clamp((vision - VIDEO_FADE_START) / (1 - VIDEO_FADE_START)))
       const videoOpacity = 1 - (1 - VIDEO_FLOOR) * fadeProgress
-      const headline = clamp((tv - 0.25) / 0.5) * (1 - clamp(vision / 0.15))
+      const headline = clamp((tv - 0.25) / 0.5) * (1 - clamp(vision / 0.08))
       device.style.setProperty('--expand', easeInOut(expandProgress).toFixed(4))
       device.style.setProperty('--video-opacity', videoOpacity.toFixed(3))
       device.style.setProperty('--dim', (0.42 * clamp(vision / 0.2)).toFixed(3))
@@ -203,7 +203,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
 
         {/* Animation 2 (ordinateur) : bureau, à droite */}
         <div
-          className="pointer-events-none absolute top-1/2 right-[4.5vw] z-10 hidden text-right md:block"
+          className="pointer-events-none absolute top-1/2 right-[1vw] z-10 hidden text-right md:block"
           style={{
             width: 'min(24rem, 29vw)',
             opacity: laptopCopy,

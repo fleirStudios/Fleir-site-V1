@@ -6,8 +6,9 @@ export default function Page() {
   return (
     <ContactDialogProvider>
       <main>
-        <MorphSection />
-        <Contact />
+        <MorphSection>
+          <Contact />
+        </MorphSection>
       </main>
     </ContactDialogProvider>
   )
