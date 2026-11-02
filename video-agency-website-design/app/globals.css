@@ -80,7 +80,7 @@
 
 .about-copy {
   --about-mix: calc(var(--about-video, 0) * 100%);
-  color: color-mix(in oklab, rgb(255 255 255 / 0.85) var(--about-mix), var(--muted-foreground));
+  color: color-mix(in oklab, rgb(255 255 255 / 0.78) var(--about-mix), rgb(110 110 115 / 0.94));
   text-shadow: 0 2px 28px rgb(0 0 0 / calc(var(--about-video, 0) * 0.35));
 }
 

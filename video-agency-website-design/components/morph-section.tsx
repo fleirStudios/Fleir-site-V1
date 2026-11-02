@@ -14,7 +14,7 @@ const TOTAL_SCROLL_VH = INTRO_VH + PHONE_VH + LAPTOP_VH + TV_VH + EXPAND_VH + VI
 
 // Le texte « À propos » (dans <Contact />) commence à remonter sur la vidéo
 // 127svh avant la fin de la phase d'animation, comme avant.
-const ABOUT_OVERLAP_VH = 127
+const ABOUT_OVERLAP_VH = 200
 const CONTENT_START_VH = 100 + TOTAL_SCROLL_VH - ABOUT_OVERLAP_VH
 
 // Vidéo de fond après l'animation de la télé :

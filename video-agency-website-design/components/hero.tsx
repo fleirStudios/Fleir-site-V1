@@ -12,7 +12,10 @@ export function Hero() {
       </p>
       {/* Le conteneur du hero ignore les clics : on les réactive sur le bouton seulement. */}
       <div className="mt-6 flex justify-center md:mt-8">
-        <StartProjectButton size="sm" className="pointer-events-auto" />
+        <StartProjectButton
+          size="sm"
+          className="pointer-events-auto md:absolute md:top-1/2 md:right-6 md:-translate-y-1/2 lg:right-12"
+        />
       </div>
     </div>
   )
