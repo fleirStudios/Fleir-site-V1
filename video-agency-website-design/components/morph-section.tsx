@@ -144,7 +144,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
 
       // Le texte « À propos » passe du blanc (vidéo bien visible) au sombre (vidéo presque effacée).
       const aboutOnVideo = vision > 0 ? clamp((videoOpacity - 0.3) / 0.4) : 0
-      root.style.setProperty('--about-opacity', smooth(clamp(vision / 0.06)).toFixed(3))
+      root.style.setProperty('--about-opacity', smooth(clamp(vision / 0.015)).toFixed(3))
       root.style.setProperty('--about-video', aboutOnVideo.toFixed(3))
     }
     function onScroll() {
