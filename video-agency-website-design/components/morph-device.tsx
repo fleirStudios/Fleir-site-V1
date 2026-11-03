@@ -86,7 +86,7 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
 
   const screenWidth = `calc(100% - ${shape.bezel} * 2)`
   const screenHeight = `calc(100% - ${shape.bezel} * 2)`
-  const screenRadius = isExpanding ? 'clamp(2px, calc(72px * (1 - var(--expand, 0))), 72px)' : shape.inner
+  const screenRadius = activeIndex === 2 ? '0px' : shape.inner
 
   return (
     <div className={`relative ${motion}`} style={{ transform: `translateY(${isExpanding ? '0px' : shape.shift})` }}>
