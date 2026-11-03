@@ -127,7 +127,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
       // qui s'arrête à VIDEO_FLOOR et y reste jusqu'en bas de page.
       const fadeProgress = smooth(clamp((vision - VIDEO_FADE_START) / (1 - VIDEO_FADE_START)))
       const videoOpacity = 1 - (1 - VIDEO_FLOOR) * fadeProgress
-      const headline = clamp(tv / 0.12) * (1 - clamp(expandProgress / 0.85))
+      const headline = clamp(tv / 0.12) * (1 - clamp(expandProgress))
       device.style.setProperty('--expand', easeInOut(expandProgress).toFixed(4))
       device.style.setProperty('--video-opacity', videoOpacity.toFixed(3))
       device.style.setProperty('--dim', (0.22 * clamp(vision / 0.2)).toFixed(3))
@@ -144,7 +144,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
 
       // Le texte « À propos » passe du blanc (vidéo bien visible) au sombre (vidéo presque effacée).
       const aboutOnVideo = vision > 0 ? clamp((videoOpacity - 0.3) / 0.4) : 0
-      root.style.setProperty('--about-opacity', smooth(clamp(vision / 0.1)).toFixed(3))
+      root.style.setProperty('--about-opacity', smooth(clamp(vision / 0.06)).toFixed(3))
       root.style.setProperty('--about-video', aboutOnVideo.toFixed(3))
     }
     function onScroll() {

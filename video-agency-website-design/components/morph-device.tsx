@@ -95,8 +95,8 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
           className={`absolute inset-0 bg-device ${motion}`}
           style={{
             borderRadius: shape.radius,
-            opacity: isExpanding ? 'calc(1 - var(--expand, 0) * 2.2)' : 1,
-            transform: isExpanding ? 'scale(calc(1 + var(--expand, 0) * 0.18))' : 'none',
+            opacity: 1,
+            transform: isExpanding ? 'scale(calc(1 + var(--expand, 0) * 0.7))' : 'none',
           }}
           aria-hidden="true"
         />
