@@ -9,7 +9,7 @@ const PHONE_VH = 42
 const LAPTOP_VH = 42
 const TV_VH = 24
 const EXPAND_VH = 72
-const VISION_VH = 130
+const VISION_VH = 180
 const TOTAL_SCROLL_VH = INTRO_VH + PHONE_VH + LAPTOP_VH + TV_VH + EXPAND_VH + VISION_VH
 
 // Le texte « À propos » (dans <Contact />) commence à remonter sur la vidéo
@@ -127,7 +127,8 @@ export function MorphSection({ children }: { children?: ReactNode }) {
       // qui s'arrête à VIDEO_FLOOR et y reste jusqu'en bas de page.
       const fadeProgress = smooth(clamp((vision - VIDEO_FADE_START) / (1 - VIDEO_FADE_START)))
       const videoOpacity = 1 - (1 - VIDEO_FLOOR) * fadeProgress
-      const headline = clamp(tv / 0.12) * (1 - clamp(vision / 0.08))
+      const contentReveal = smooth(clamp((scrolled - CONTENT_START_VH) / 6))
+      const headline = clamp(tv / 0.12) * (1 - clamp(vision / 0.08)) * (1 - contentReveal)
       device.style.setProperty('--expand', easeInOut(expandProgress).toFixed(4))
       device.style.setProperty('--video-opacity', videoOpacity.toFixed(3))
       device.style.setProperty('--dim', (0.22 * clamp(vision / 0.2)).toFixed(3))
