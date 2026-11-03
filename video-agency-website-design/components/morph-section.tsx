@@ -21,7 +21,7 @@ const CONTENT_START_VH = 100 + TOTAL_SCROLL_VH - ABOUT_OVERLAP_VH
 // - elle s'estompe sur TOUTE la phase « vision » (au lieu des 30 % finaux),
 // - puis elle reste à cette opacité plancher jusqu'en bas de la page.
 const VIDEO_FLOOR = 0.28 // 0 = disparaît complètement, 1 = pleinement visible
-const VIDEO_FADE_START = 0.05 // début de l'estompage, en part de la phase « vision »
+const VIDEO_FADE_START = 0.24 // garde la vidéo visible plus longtemps avant l'estompage
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value))
 const easeInOut = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
@@ -144,7 +144,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
 
       // Le texte « À propos » passe du blanc (vidéo bien visible) au sombre (vidéo presque effacée).
       const aboutOnVideo = vision > 0 ? clamp((videoOpacity - 0.3) / 0.4) : 0
-      root.style.setProperty('--about-opacity', clamp(vision / 0.12).toFixed(3))
+      root.style.setProperty('--about-opacity', smooth(clamp(vision / 0.28)).toFixed(3))
       root.style.setProperty('--about-video', aboutOnVideo.toFixed(3))
     }
     function onScroll() {

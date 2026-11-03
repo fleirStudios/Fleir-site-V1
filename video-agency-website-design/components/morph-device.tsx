@@ -92,7 +92,7 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
     <div className={`relative ${motion}`} style={{ transform: `translateY(${isExpanding ? '0px' : shape.shift})` }}>
       <div className={`relative ${motion}`} style={{ width: shape.width, height: shape.height }}>
         <div
-          className={`absolute inset-0 bg-device shadow-[0_40px_80px_-30px_rgba(0,0,0,0.35)] ${motion}`}
+          className={`absolute inset-0 bg-device ${motion}`}
           style={{
             borderRadius: shape.radius,
             opacity: isExpanding ? 'calc(1 - var(--expand, 0) * 2.2)' : 1,
@@ -108,17 +108,14 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
             height: screenHeight,
             borderRadius: screenRadius,
             transform: isExpanding
-              ? 'translate(-50%, -50%) scaleX(calc(1 + var(--expand, 0) * 0.7)) scaleY(calc(1 + var(--expand, 0) * 0.4))'
+              ? 'translate(-50%, -50%) scale(calc(1 + var(--expand, 0) * 0.7))'
               : 'translate(-50%, -50%)',
             opacity: 'var(--video-opacity, 1)',
-            boxShadow: isExpanding
-              ? '0 40px 90px -20px rgb(0 0 0 / calc(0.45 * (1 - var(--expand, 0))))'
-              : undefined,
           }}
         >
           <div
             className="absolute inset-0"
-            style={{ transform: isExpanding ? 'scale(calc(1 + var(--expand, 0) * 0.06))' : undefined }}
+            style={{ transform: undefined }}
           >
             <LoopVideo />
           </div>
