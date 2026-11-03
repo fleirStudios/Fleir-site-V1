@@ -20,7 +20,7 @@ const CONTENT_START_VH = 100 + TOTAL_SCROLL_VH - ABOUT_OVERLAP_VH
 // Vidéo de fond après l'animation de la télé :
 // - elle s'estompe sur TOUTE la phase « vision » (au lieu des 30 % finaux),
 // - puis elle reste à cette opacité plancher jusqu'en bas de la page.
-const VIDEO_FLOOR = 0.28 // 0 = disparaît complètement, 1 = pleinement visible
+const VIDEO_FLOOR = 0.5 // 0 = disparaît complètement, 1 = pleinement visible
 const VIDEO_FADE_START = 0.24 // garde la vidéo visible plus longtemps avant l'estompage
 
 const clamp = (value: number) => Math.min(1, Math.max(0, value))
@@ -131,7 +131,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
       const headline = clamp(tv / 0.12) * (1 - clamp(vision / 0.08)) * (1 - contentReveal)
       device.style.setProperty('--expand', easeInOut(expandProgress).toFixed(4))
       device.style.setProperty('--video-opacity', videoOpacity.toFixed(3))
-      device.style.setProperty('--dim', (0.22 * clamp(vision / 0.2)).toFixed(3))
+      device.style.setProperty('--dim', '0')
       device.style.setProperty('--headline', headline.toFixed(3))
 
       let stage = 0

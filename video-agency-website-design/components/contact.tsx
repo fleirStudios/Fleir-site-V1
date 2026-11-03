@@ -55,9 +55,6 @@ export function Contact() {
       </Reveal>
 
       <Reveal className="flex flex-col items-center gap-10 px-6">
-        <h2 className="-mb-4 text-xl font-medium tracking-tight text-muted-foreground md:text-2xl">
-          Nous contacter
-        </h2>
         <StartProjectButton size="lg" />
         <a
           href={INSTAGRAM_URL}
