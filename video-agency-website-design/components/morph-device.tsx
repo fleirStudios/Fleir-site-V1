@@ -119,7 +119,7 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
           >
             <LoopVideo />
           </div>
-          <div className="absolute inset-0 bg-black" style={{ opacity: 'var(--dim, 0)' }} aria-hidden="true" />
+          <div className="absolute inset-0 bg-[#f5f5f7]" style={{ opacity: 'var(--dim, 0)' }} aria-hidden="true" />
           <p
             className="pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 text-center font-semibold text-white"
             style={{
