@@ -126,7 +126,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
       // Estompage très progressif de la vidéo, étalé sur toute la phase « vision »,
       // qui s'arrête à VIDEO_FLOOR et y reste jusqu'en bas de page.
       const fadeProgress = smooth(clamp((vision - VIDEO_FADE_START) / (1 - VIDEO_FADE_START)))
-      const videoOpacity = 1 - (1 - VIDEO_FLOOR) * fadeProgress
+      const videoOpacity = 1
       const contentReveal = smooth(clamp((scrolled - CONTENT_START_VH) / 6))
       const headline = clamp(tv / 0.12) * (1 - clamp(vision / 0.08)) * (1 - contentReveal)
       device.style.setProperty('--expand', easeInOut(expandProgress).toFixed(4))
