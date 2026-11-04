@@ -9,12 +9,11 @@ const PHONE_VH = 42
 const LAPTOP_VH = 42
 const TV_VH = 24
 const EXPAND_VH = 72
-const VISION_VH = 180
+const VISION_VH = 240
 const TOTAL_SCROLL_VH = INTRO_VH + PHONE_VH + LAPTOP_VH + TV_VH + EXPAND_VH + VISION_VH
 
-// Le texte « À propos » (dans <Contact />) commence à remonter sur la vidéo
-// 127svh avant la fin de la phase d'animation, comme avant.
-const ABOUT_OVERLAP_VH = 200
+// Laisse la phase de zoom se terminer avant de faire entrer le texte long.
+const ABOUT_OVERLAP_VH = 150
 const CONTENT_START_VH = 100 + TOTAL_SCROLL_VH - ABOUT_OVERLAP_VH
 
 // Vidéo de fond après l'animation de la télé :
