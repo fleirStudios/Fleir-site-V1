@@ -13,7 +13,7 @@ const VISION_VH = 240
 const TOTAL_SCROLL_VH = INTRO_VH + PHONE_VH + LAPTOP_VH + TV_VH + EXPAND_VH + VISION_VH
 
 // Laisse la phase de zoom se terminer avant de faire entrer le texte long.
-const ABOUT_OVERLAP_VH = 150
+const ABOUT_OVERLAP_VH = 180
 const CONTENT_START_VH = 100 + TOTAL_SCROLL_VH - ABOUT_OVERLAP_VH
 
 // Vidéo de fond après l'animation de la télé :
