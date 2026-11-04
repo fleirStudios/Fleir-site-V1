@@ -130,7 +130,7 @@ export function MorphSection({ children }: { children?: ReactNode }) {
       const headline = clamp(tv / 0.12) * (1 - clamp(vision / 0.08)) * (1 - contentReveal)
       device.style.setProperty('--expand', easeInOut(expandProgress).toFixed(4))
       device.style.setProperty('--video-opacity', videoOpacity.toFixed(3))
-      device.style.setProperty('--dim', (0.3 * clamp(vision / 0.2)).toFixed(3))
+      device.style.setProperty('--dim', (0.3 * smooth(vision)).toFixed(3))
       device.style.setProperty('--headline', headline.toFixed(3))
 
       let stage = 0
