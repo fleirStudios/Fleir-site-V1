@@ -131,7 +131,10 @@ export function MorphSection({ children }: { children?: ReactNode }) {
       device.style.setProperty('--expand', easeInOut(expandProgress).toFixed(4))
       device.style.setProperty('--video-opacity', videoOpacity.toFixed(3))
       device.style.setProperty('--dim', (0.3 * smooth(vision)).toFixed(3))
-      device.style.setProperty('--headline', headline.toFixed(3))
+      const zoomFactor = window.matchMedia('(max-width: 500px)').matches ? 2.5 : 1
+  const headlineScale = 1 / (1 + easeInOut(expandProgress) * zoomFactor)
+  device.style.setProperty('--headline', headline.toFixed(3))
+  device.style.setProperty('--headline-scale', headlineScale.toFixed(4))
 
       let stage = 0
       if (tv > 0 || expandProgress > 0 || vision > 0) stage = 2

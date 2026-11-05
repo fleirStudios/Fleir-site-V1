@@ -126,8 +126,11 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
               fontSize: '8.5cqw',
               lineHeight: 1,
               letterSpacing: '-0.04em',
-              opacity: 'var(--headline, 0)',
-              textShadow: '0 6px 40px rgba(0,0,0,0.35)',
+  opacity: 'var(--headline, 0)',
+  transform: 'scale(var(--headline-scale, 1))',
+  transformOrigin: 'center',
+  textShadow: '0 6px 40px rgba(0,0,0,0.35)',
+
             }}
           >
             Voyez plus grand
