@@ -68,7 +68,7 @@ export function Contact() {
         <p className="text-base font-medium tracking-tight text-foreground/70">Paris · Bordeaux</p>
       </Reveal>
 
-      <p className="text-sm font-medium tracking-tight text-foreground/60">{'© 2026 Fleir'}</p>
+      <p className="-mt-12 text-sm font-medium tracking-tight text-foreground/60 md:-mt-20">{'© 2026 Fleir'}</p>
     </section>
   )
 }
