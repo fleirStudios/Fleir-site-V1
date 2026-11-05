@@ -92,23 +92,23 @@ export function MorphDevice({ activeIndex, expanding = false }: { activeIndex: n
     <div className={`relative ${motion}`} style={{ transform: `translateY(${isExpanding ? '0px' : shape.shift})` }}>
       <div className={`relative ${motion}`} style={{ width: shape.width, height: shape.height }}>
         <div
-          className={`absolute inset-0 bg-device ${motion}`}
+          className={`morph-expand-surface absolute inset-0 bg-device ${motion}`}
           style={{
             borderRadius: shape.radius,
             opacity: 1,
-            transform: isExpanding ? 'scale(calc(1 + var(--expand, 0) * 0.7))' : 'none',
+            transform: isExpanding ? 'scale(calc(1 + var(--expand, 0) * var(--zoom-factor, 1)))' : 'none',
           }}
           aria-hidden="true"
         />
 
         <div
-          className={`@container absolute left-1/2 top-1/2 overflow-hidden bg-black ${motion}`}
+          className={`morph-expand-surface @container absolute left-1/2 top-1/2 overflow-hidden bg-black ${motion}`}
           style={{
             width: screenWidth,
             height: screenHeight,
             borderRadius: screenRadius,
             transform: isExpanding
-              ? 'translate(-50%, -50%) scale(calc(1 + var(--expand, 0) * 0.7))'
+              ? 'translate(-50%, -50%) scale(calc(1 + var(--expand, 0) * var(--zoom-factor, 1)))'
               : 'translate(-50%, -50%)',
             opacity: 'var(--video-opacity, 1)',
           }}

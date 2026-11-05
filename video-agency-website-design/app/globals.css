@@ -56,6 +56,12 @@
   --radius: 0.75rem;
 }
 
+@media (max-width: 500px) {
+  .morph-expand-surface {
+    --zoom-factor: 2.5;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
