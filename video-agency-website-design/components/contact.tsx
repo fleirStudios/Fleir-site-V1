@@ -50,7 +50,7 @@ export function Contact() {
       </p>
 
       <Reveal className="flex w-full flex-col items-center gap-8">
-        <h2 className="text-xl font-medium tracking-tight text-muted-foreground md:text-2xl">Nos expériences</h2>
+        <h2 className="text-xl font-medium tracking-tight text-foreground/80 md:text-2xl">Nos expériences</h2>
         <LogoMarquee />
       </Reveal>
 
@@ -65,10 +65,10 @@ export function Contact() {
           <Instagram className="size-5" />
           Instagram
         </a>
-        <p className="text-base font-medium tracking-tight text-muted-foreground">Paris · Bordeaux</p>
+        <p className="text-base font-medium tracking-tight text-foreground/70">Paris · Bordeaux</p>
       </Reveal>
 
-      <p className="text-sm font-medium tracking-tight text-muted-foreground">{'© 2026 Fleir'}</p>
+      <p className="text-sm font-medium tracking-tight text-foreground/60">{'© 2026 Fleir'}</p>
     </section>
   )
 }
