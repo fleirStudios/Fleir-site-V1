@@ -116,12 +116,36 @@ export type CallbackRequest = {
   slotEnd: number // heure de Paris
 }
 
+const WEB3FORMS_ACCESS_KEY = 'a3759de5-7f68-43aa-9595-287ef2387c96'
+
 async function sendCallbackRequest(request: CallbackRequest): Promise<void> {
-  // TODO (étape suivante) : envoyer cette demande par e-mail à contact@fleir.fr
-  // depuis une route serveur (par ex. app/api/callback/route.ts).
-  // Pour l'instant, RIEN N'EST ENVOYÉ : la fonction simule seulement un envoi.
-  await new Promise((resolve) => setTimeout(resolve, 600))
-  console.info('[Fleir] demande de rappel (non envoyée)', request)
+  const [y, m, d] = request.date.split('-').map(Number)
+  const jour = longDayFormat.format(utcDate({ y, m: m - 1, d }))
+
+  const payload: Record<string, string> = {
+    access_key: WEB3FORMS_ACCESS_KEY,
+    subject: `Demande de rappel – ${request.name}`,
+    from_name: 'Site fleir.fr',
+    name: request.name,
+    phone: request.phone,
+    rappel: `${jour}, entre ${request.slotStart}h et ${request.slotEnd}h (heure de Paris)`,
+    message: request.message || '(aucun message)',
+  }
+  if (request.email) payload.email = request.email
+
+  const response = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+    body: JSON.stringify(payload),
+  })
+
+  const result: { success?: boolean; message?: string } | null = await response
+    .json()
+    .catch(() => null)
+
+  if (!response.ok || !result?.success) {
+    throw new Error(result?.message ?? 'Envoi impossible')
+  }
 }
 
 /* -------------------------------------------------------------------------- */
