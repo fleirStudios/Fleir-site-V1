@@ -25,6 +25,12 @@ function Instagram({ className }: { className?: string }) {
 const INSTAGRAM_URL = 'https://www.instagram.com/fleir'
 
 /*
+ * Réseaux sociaux : mettre `true` pour afficher le bouton Instagram sur le site,
+ * `false` pour le masquer (tant qu'il n'y a rien à montrer).
+ */
+const SHOW_SOCIALS = false
+
+/*
  * Ce composant est maintenant rendu À L'INTÉRIEUR de <MorphSection> (voir page.tsx) :
  * c'est MorphSection qui le fait remonter sur la vidéo, donc plus de marge négative ici.
  * `pointer-events-auto` : le conteneur parent est transparent aux clics, on les réactive ici.
@@ -56,15 +62,17 @@ export function Contact() {
 
       <Reveal className="flex flex-col items-center gap-10 px-6">
         <StartProjectButton size="lg" />
-        <a
-          href={INSTAGRAM_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-card px-7 py-3.5 text-base font-medium tracking-tight transition-all hover:scale-[1.03] hover:border-primary hover:text-primary active:scale-100"
-        >
-          <Instagram className="size-5" />
-          Instagram
-        </a>
+        {SHOW_SOCIALS && (
+          <a
+            href={INSTAGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-foreground/15 bg-card px-7 py-3.5 text-base font-medium tracking-tight transition-all hover:scale-[1.03] hover:border-primary hover:text-primary active:scale-100"
+          >
+            <Instagram className="size-5" />
+            Instagram
+          </a>
+        )}
         <p className="text-base font-medium tracking-tight text-foreground/70">Paris · Bordeaux</p>
       </Reveal>
 
